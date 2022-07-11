@@ -569,6 +569,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'blog',
     'blog_api',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -660,7 +661,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # project-level permissions
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
 
@@ -684,3 +688,6 @@ CORS_ALLOW_METHODS = [
     'POST',
     'PUT',
 ]
+
+# Custom user model
+AUTH_USER_MODEL = "users.NewUser"
