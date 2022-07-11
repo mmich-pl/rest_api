@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from blog.models import Post, Category
 
 
-class Test_Create_Post(TestCase):
+class TestCreatePost(TestCase):
     @classmethod
     def setUpTestData(cls):
         test_category = Category.objects.create(name='django')
